@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.audio.AudioEngine
-import com.example.service.AudioForegroundService
 import com.example.ui.SnapAudioNavigation
 import com.example.ui.theme.SnapAudioTheme
 import com.example.ui.theme.DarkBackground
@@ -22,13 +21,6 @@ class MainActivity : ComponentActivity() {
         
         // Initialize the AudioFX engine globally
         AudioEngine.initialize()
-
-        val serviceIntent = Intent(this, AudioForegroundService::class.java)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(serviceIntent)
-        } else {
-            startService(serviceIntent)
-        }
 
         setContent {
             SnapAudioTheme {

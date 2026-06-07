@@ -84,7 +84,7 @@ fun EqBandSlider(freq: String, level: Int, onLevelChange: (Float) -> Unit) {
         Text(freq, color = TextSecondary, fontSize = 11.sp)
         Spacer(modifier = Modifier.height(16.dp))
         Slider(
-            value = level.toFloat(),
+            value = level.toFloat().coerceIn(-1500f, 1500f),
             onValueChange = onLevelChange,
             valueRange = -1500f..1500f,
             modifier = Modifier.weight(1f),
